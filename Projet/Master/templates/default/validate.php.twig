@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Validate{% endblock %}
+
+{#{% block navbar %}#}
+{#<li class="btn nav-item active">#}
+{#<a class="nav-link" href="/validate">Validate</a>#}
+{#</li>#}
+
+{#{% if isAdmin %}#}
+{#<li class="btn nav-item active">#}
+{#<a class="nav-link" href="/admin">Admin</a>#}
+{#</li>#}
+{#{% endif %}#}
+{#<li class="btn nav-item btn-danger active">#}
+{#<a class="nav-link" href="/?disconnect=true">Disconnect</a>#}
+{#</li>#}
+{#{% endblock %}#}
+
+{% block body %}
+
+{% if modelValidated == "valid" %}
+<div class="alert alert-success alert-dismissible">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Success!</strong> Your model has been validated.
+</div>
+{% elseif modelValidated == "notValid" %}
+<div class="alert alert-danger alert-dismissible">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Failed!</strong> Your model contains errors.
+</div>
+{% endif %}
+
+<form action="/validator" method="post">
+  <div class="form-group">
+    <label >XML to validate:</label>
+    <textarea name="XML" class="form-control" rows="5" id="xml"></textarea>
+    <br>
+    <hr>
+    <br>
+    <label>XSD to validate:</label>
+    <textarea name="XSD" class="form-control" rows="5" id="xsd"></textarea>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+{% endblock %}
+
+{% block include %}
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+{% endblock %}

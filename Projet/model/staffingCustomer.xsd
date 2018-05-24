@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- **************************************** -->
+<!--
+* Revision :
+* 20161106 PAP creation
+*
+* -->
+<!-- **************************************** -->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:doc="http://www.coffreo.com/schemas/documentation">
+
+  <xs:annotation>
+    <xs:documentation xml:lang="fr">
+      Information about the staffing customer
+    </xs:documentation>
+  </xs:annotation>
+
+  <xs:include schemaLocation="postalAddress.xsd"/>
+
+  <xs:element name="staffingCustomer" doc:fr="client">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="staffingCustomerId" type="xs:token" doc:fr="identifiant du client"/>
+        <xs:element name="name" type="xs:token" doc:fr="nom du client"/>
+        <xs:element name="siret" type="xs:token" doc:comment="add restriction" doc:fr="siret du client"/>
+        <xs:element ref="postalAddress" doc:fr="adresse postale du client"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

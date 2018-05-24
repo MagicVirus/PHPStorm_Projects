@@ -1,0 +1,68 @@
+{% extends 'view/base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+  <div class="card">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Model</th>
+        <th>Version</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      {% set i = 0 %}
+      {% for  model in models %}
+        <tr>
+            {% set i = i +1 %}
+          <th scope="row">{{ i }}</th>
+          <td>{{ model.getDescription }}</td>
+          <td>v.{{ model.getVersion }}</td>
+          <td>
+            <!-- Button to Open the Modal -->
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal{{ i }}">View</button>
+
+            <form action="/validate" method="post">
+              <!-- The Modal -->
+              <div class="modal fade" id="myModal{{ i }}">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">{{model.getVersion}}</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        {{model.getModel}}
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+
+                      <textarea name="xsd" style="display:none;">{{model.getModel}}</textarea>
+
+                      <button type="submit" class="btn btn-info">Validate</button>
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </form>
+
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<staffingCustomer>
+  <staffingCustomerId>000187</staffingCustomerId>
+  <name>A.V.M PAS CS</name>
+  <siret>50093237100015</siret>
+  <postalAddress>
+    <address1>BP 92103</address1>
+    <address2>106 AVENUE TOLOSANE</address2>
+    <address3>COMPLÉMENT RAISON SOCIALE 1</address3>
+    <zip>69001</zip>
+    <city>LYON</city>
+    <country>FR</country>
+  </postalAddress>
+</staffingCustomer>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+  <resource>
+    <resourceId>kId-874592</resourceId>
+    <title>Mme</title>
+    <firstname>Alexandrie</firstname>
+    <lastname>Boyer</lastname>
+    <birthdate>1971-05-23</birthdate>
+    <postalAddress>
+      <address1>rue de Arnaud</address1>
+      <address2/>
+      <address3/>
+      <zip>66000</zip>
+      <city>Pyrénées-Orientales</city>
+      <country>FR</country>
+    </postalAddress>
+    <email>alexandrie.boyer@tiscali.fr</email>
+    <cellPhone>+33 7 41 10 25 24</cellPhone>
+    <phone>0243465248</phone>
+  </resource>
+  <staffingCustomer>
+    <staffingCustomerId>000187</staffingCustomerId>
+    <name>A.V.M PAS CS</name>
+    <siret>50093237100015</siret>
+    <postalAddress>
+      <address1>BP 92103</address1>
+      <address2>106 AVENUE TOLOSANE</address2>
+      <address3>COMPLÉMENT RAISON SOCIALE 1</address3>
+      <zip>69001</zip>
+      <city>LYON</city>
+      <country>FR</country>
+    </postalAddress>
+  </staffingCustomer>
+</document>

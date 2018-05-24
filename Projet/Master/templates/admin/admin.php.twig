@@ -1,0 +1,139 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+
+{% if message == "User Deleted" %}
+<div class="alert alert-success alert-dismissible">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Success!</strong> {{ message }}
+</div>
+{% elseif message == "User Added" %}
+<div class="alert alert-success alert-dismissible">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Success!</strong> {{ message }}
+</div>
+{% elseif message == "Model Added" %}
+<div class="alert alert-success alert-dismissible">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Success!</strong> {{ message }}
+</div>
+{% endif %}
+
+<div class="row">
+  <div class="col-sm-3">
+    <div class="btn-group-vertical">
+
+      <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#button1">Add User</button>
+      <div class="collapse" id="button1">
+        <form action="/admin" method="post">
+
+          <div class="form-group">
+            <label for="email">Email address:</label>
+            <input name="name" type="email" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input name="password" type="password" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-default">Add User</button>
+
+        </form>
+      </div>
+
+      <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#button2">Delete User</button>
+      <div class="collapse" id="button2">
+        <form action="/admin" method="post">
+
+          <div class="form-group">
+            <label for="email">Email address:</label>
+            <input name="delUser" type="email" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-default">Delete User</button>
+
+        </form>
+      </div>
+
+      <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#button3">Add Template</button>
+      <div class="collapse" id="button3">
+        <form action="/admin" method="post">
+
+          <div class="form-group">
+            <label for="email">Email address:</label>
+            <input name="email" type="text" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Model:</label>
+            <input name="model" type="text" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-default">Add Model to User</button>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-9">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Model</th>
+          <th>Version</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set i = 0 %}
+        {% for  model in models %}
+        <tr>
+          {% set i = i +1 %}
+          <th scope="row">{{ i }}</th>
+          <td>{{ model.getDescription }}</td>
+          <td>v.{{ model.getVersion }}</td>
+          <td>
+            <!-- Button to Open the Modal -->
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal{{ i }}">View</button>
+
+            <!-- The Modal -->
+            <div class="modal fade" id="myModal{{ i }}">
+              <div class="modal-dialog">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title">{{model.getVersion}}</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    {{model.getModel}}
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+{% block include %}
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+{% endblock %}

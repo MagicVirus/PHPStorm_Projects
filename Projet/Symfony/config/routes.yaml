@@ -1,0 +1,25 @@
+##index:
+##    path: /
+##    controller: App\Controller\DefaultController::index
+## the "app_lucky_number" route name is not important yet
+#app_lucky_number:
+#    path: /lucky/number
+#    controller: App\Controller\LuckyController::number
+#
+##app_display_model:
+##    path: /
+##    controller: App\Controller\DisplayModel::indexAction
+#
+## app/config/routing.yml
+#
+## import routes from a controller class
+#
+#
+##app:
+##    resource: "@AppBundle/Controller/"
+##    type:     annotation
+
+# import routes from a controller class
+post:
+    resource: "../src/Controller/ControllerModel.php"
+    type: annotation

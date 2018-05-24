@@ -1,0 +1,45 @@
+{% extends 'view/base.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+
+    {% if message == "User Deleted" %}
+      <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> {{ message }}
+      </div>
+    {% elseif message == "User Added" %}
+      <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> {{ message }}
+      </div>
+    {% elseif message == "Model Added" %}
+      <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> {{ message }}
+      </div>
+    {% endif %}
+
+    {% include 'element/admin-menu.html.twig' %}
+
+<div class="card">
+  <div class="card-header">
+    <ul class="nav nav-pills card-header-pills">
+      <li class="nav-item">
+        <button type="button" style="margin-right: 10px;" class="btn btn-info" data-toggle="modal" data-target="#button1">Add User</button>
+      </li>
+      <li class="nav-item">
+        <button type="button" style="margin-right: 10px;" class="btn btn-info" data-toggle="modal" data-target="#button2">Delete User</button>
+      </li>
+      <li class="nav-item">
+        <button type="button" style="margin-right: 10px;" class="btn btn-info" data-toggle="modal" data-target="#button3">List Users</button>
+      </li>
+    </ul>
+  </div>
+
+
+    {% include 'element/admin-tab.html.twig' %}
+
+
+    {% endblock %}
